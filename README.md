@@ -1,7 +1,7 @@
-Docker Folder Structure
-=======================
+Docker Dynamic Build
+====================
 
-A simple proof of concept to show multiple environments [local, dev, staging, production etc] supported from a single Dockerfile.
+A simple proof of concept to show how to build multiple environments [local, dev, staging, production etc] from a single Dockerfile.
 
 Steps
 -----
