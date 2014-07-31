@@ -15,7 +15,7 @@ RUN apt-get update --fix-missing
 ADD ./ops /ops
 ADD ./app /var/www/app
 RUN chown -R www-data /ops/
-RUN find . -name "*.sh" -exec chmod +x {} \;
+RUN cd /ops && find . -name "*.sh" -exec chmod +x {} \;
 
 # rev er up
 CMD cd /ops && ./run.sh
