@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -n "$ENV" ]
+if [ -z "$ENV" ]
 then
     echo "!!! You must set an ENV variable !!!"
     echo "docker run -P -d -e ENV=dev <yourboxname>"
