@@ -16,5 +16,9 @@ then
     exit
 fi
 
+# global
+./_base/base-build.sh
+
+# env-specific
 ./$ENV/docker-build.sh
 ./$ENV/docker-run.sh
