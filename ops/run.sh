@@ -17,7 +17,7 @@ then
 fi
 
 # global
-./_base/base-build.sh
+./_global/base-build.sh
 
 # env-specific
 ./$ENV/docker-build.sh
