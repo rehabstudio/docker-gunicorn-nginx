@@ -1,5 +1,7 @@
 #!/bin/bash
 
+appPath=/var/www/app
+
 # installs
 apt-get install -y build-essential git 
 apt-get install -y python python-dev python-setuptools
@@ -9,7 +11,7 @@ pip install uwsgi
 
 # nginx
 echo "daemon off;" >> /etc/nginx/nginx.conf
-rm /etc/nginx/sites-enabled/default && ln -s /ops/live/vhost.conf /etc/nginx/sites-enabled/default
+ln -sf /ops/live/vhost.conf /etc/nginx/sites-enabled/default
 chown -R www-data /var/www/app
 
 # pip
@@ -20,8 +22,10 @@ then
 fi
 
 # supervisor
-rm /etc/supervisord.conf && ln -s /ops/live/supervisord.conf /etc/supervisord.conf
+ln -sf /ops/live/supervisord.conf /etc/supervisord.conf
 
-# kickstart django
-django-admin.py startproject website /var/www/app/
-    
+# django
+if [ ! -f $appPath/manage.py ];
+then
+	django-admin.py startproject website $appPath
+fi
