@@ -7,7 +7,7 @@ A bare bones python Docker setup to support local and production development fro
 
 1. Pull the repo
 2. Build the box `sudo docker build -t="rehabstudio/pythonproject" .`
-3. Run with your desired env specified `sudo docker run -P -d -e ENV=local rehabstudio/pythonproject` (swap out 'local' for 'production' if needs be)
+3. Run with your desired env specified `sudo docker run -P -v=/var/www/Sites/docker-python-base/app/:/var/www/app:rw -d -e ENV=live rehabstudio/pythonproject` (swap out 'local' for 'production' if needs be, and /var/www/Sites/docker-python-base/app/ for the relevant absolute path on your computer )
 
 ##Useful Docker Commands (use with care)
 
