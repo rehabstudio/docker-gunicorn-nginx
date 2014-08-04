@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# do stuff
-echo "Toodles! ~ Live"
+# start supervisor services
+supervisord -c /etc/supervisord.conf -n
