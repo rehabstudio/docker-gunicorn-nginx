@@ -16,9 +16,9 @@ then
     exit
 fi
 
-# global
-./_global/base-build.sh
+# note: Global installs [applicable to all envs] should be detailed inside the 
+# Dockerfile, so that they can be properly cached by Docker
 
-# env-specific
+# env-specific installs & run
 ./$ENV/docker-build.sh
 ./$ENV/docker-run.sh
