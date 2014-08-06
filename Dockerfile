@@ -16,6 +16,11 @@ ADD ./ops /ops
 ADD ./app /var/www/app
 RUN find /ops -name "*.sh" -exec chmod +x {} \;
 
+# global installs [applies to all envs!]
+RUN apt-get install -y build-essential git 
+RUN apt-get install -y python python-dev python-setuptools
+RUN easy_install pip
+
 # rev er up
 CMD cd /ops && ./run.sh
 
