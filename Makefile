@@ -1,4 +1,4 @@
-ENV=local
+ENV=live
 TAG=rehabstudio/pythonproject
 
 help:
