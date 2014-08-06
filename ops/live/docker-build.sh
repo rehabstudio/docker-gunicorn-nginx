@@ -19,9 +19,3 @@ ln -sf /ops/live/supervisord.conf /etc/supervisord.conf
 ln -sf /ops/live/vhost.conf /etc/nginx/sites-enabled/default
 chown -R www-data $appPath
 service nginx restart
-
-# django
-if [ ! -f $appPath/manage.py ];
-then
-    django-admin.py startproject website $appPath
-fi
