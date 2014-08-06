@@ -6,10 +6,10 @@ APP_PATH=/var/app
 apt-get install -y nginx supervisor
 
 # pip
-pipPath=$APP_PATH/requirements.txt
-if [ -f $pipPath ];
+PIP_PATH=$APP_PATH/requirements.txt
+if [ -f $PIP_PATH ];
 then
-    pip install -r $pipPath
+    pip install -r $PIP_PATH
 fi
 
 # supervisor
