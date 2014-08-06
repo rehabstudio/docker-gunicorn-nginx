@@ -3,11 +3,14 @@ Docker Python Base
 
 A bare bones python Docker setup to support local and production development from a single ops base
 
-##Steps
+##Steps to run
 
-1. Pull the repo
-2. Build the box `sudo docker build -t="rehabstudio/pythonproject" .`
-3. Run with your desired env specified `sudo docker run -P -v=/var/Sites/docker-python-base/app/:/var/app:rw -d -e ENV=live rehabstudio/pythonproject` (swap out 'local' for 'production' if needs be, and /var/Sites/docker-python-base/app/ for the relevant absolute path on your computer )
+1. `make all`. Note: you may need to run this as sudo, depending on how your docker install is set up, eg. `sudo make all`
+
+##Steps to run without Makefile
+
+1. Build the box `sudo docker build -t="rehabstudio/pythonproject" .`
+2. Run with your desired env specified `sudo docker run -P -v=/var/Sites/docker-python-base/app/:/var/app:rw -d -e ENV=live rehabstudio/pythonproject` (swap out 'local' for 'production' if needs be, and /var/Sites/docker-python-base/app/ for the relevant absolute path on your computer )
 
 ##Useful Docker Commands (use with care)
 
