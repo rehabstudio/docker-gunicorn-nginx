@@ -1,6 +1,6 @@
 #!/bin/bash
 
-appPath=/var/www/app
+appPath=/var/app
 
 # installs
 apt-get install -y nginx supervisor
@@ -17,7 +17,7 @@ ln -sf /ops/live/supervisord.conf /etc/supervisord.conf
 
 # nginx
 ln -sf /ops/live/vhost.conf /etc/nginx/sites-enabled/default
-chown -R www-data /var/www/app
+chown -R www-data $appPath
 service nginx restart
 
 # django
