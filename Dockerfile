@@ -13,13 +13,13 @@ RUN apt-get update --fix-missing
 
 # file management
 ADD ./ops /ops
-ADD ./app /var/www/app
+ADD ./app /var/app
 RUN find /ops -name "*.sh" -exec chmod +x {} \;
 
 # global installs [applies to all envs!]
 RUN apt-get install -y build-essential git 
 RUN apt-get install -y python python-dev python-setuptools
-RUN easy_install pip
+RUN apt-get install -y python-pip python-virtualenv
 
 # rev er up
 CMD cd /ops && ./run.sh
