@@ -4,7 +4,6 @@ appPath=/var/www/app
 
 # installs
 apt-get install -y nginx supervisor
-pip install uwsgi
 
 # pip
 pipPath=$appPath/requirements.txt
