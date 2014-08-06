@@ -1,12 +1,12 @@
 #!/bin/bash
 
 APP_PATH=/var/app
+PIP_PATH=$APP_PATH/requirements.txt
 
 # installs
 apt-get install -y nginx supervisor
 
 # pip
-PIP_PATH=$APP_PATH/requirements.txt
 if [ -f $PIP_PATH ];
 then
     pip install -r $PIP_PATH
