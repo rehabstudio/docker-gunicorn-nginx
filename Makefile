@@ -3,7 +3,6 @@ help:
 	@echo "build-deploy - Build container in production mode"
 	@echo "run-local - Run container for local development"
 	@echo "run-deploy - Run container for in production mode"
-	@echo "$(CURDIR)"
 
 build-base:
 	cd ops/base/; docker build -t="rehabstudio/python-base" .
