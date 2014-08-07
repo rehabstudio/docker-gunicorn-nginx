@@ -18,4 +18,4 @@ run-local: build-local
 	docker run -P -t -i -v $(CURDIR)/app:/opt/app rehabstudio/python-local
 
 run-deploy: build-deploy
-	docker run -P -v $(CURDIR)/app:/opt/app rehabstudio/python-deploy
+	docker run -P -t -i -v $(CURDIR)/app:/opt/app rehabstudio/python-deploy
