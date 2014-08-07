@@ -1,21 +1,20 @@
-ENV=live
-TAG=rehabstudio/pythonproject
-
 help:
-	@echo "\nall - Build & run a fresh Container"
-	@echo "build-container - Build Container"
-	@echo "run-container - Run Container"
-	@echo "remove-container - Remove Container"
-	@echo "\nGLOBAL ARGS (ENV=local, TAG=rehabstudio/pythonproject)"
-	@echo "\neg. make all ENV=live TAG=myapp\n"
+	@echo "build-local - Build container for local development"
+	@echo "build-deploy - Build container in production mode"
+	@echo "run-local - Run container for local development"
+	@echo "run-deploy - Run container for in production mode"
 
-all: build run
+build-base:
+	cd ops/base/; docker build -t="rehabstudio/python-base" .
 
-build:
-	@docker build -t="$(TAG)" .
+build-local: build-base
+	cd ops/local/; docker build -t="rehabstudio/python-local" .
 
-run:
-	@docker run -P -v=$(CURDIR)/app/:/var/app:rw -d -e ENV=$(ENV) $(TAG)
+build-deploy: build-base
+	cd ops/deploy/; docker build -t="rehabstudio/python-deploy" .
 
-remove:
-	-@docker rmi $(TAG)
+run-local: build-local
+	docker run -P -t -i -v $(CURDIR)/app:/opt/app rehabstudio/python-local
+
+run-deploy: build-deploy
+	docker run -P -t -i -v $(CURDIR)/app:/opt/app rehabstudio/python-deploy
